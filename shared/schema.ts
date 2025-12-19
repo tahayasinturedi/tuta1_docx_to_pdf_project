@@ -12,10 +12,9 @@ export interface Conversion {
     error: string | null; 
     createdAt: Date;
     completedAt:Date | null;
-
 }
 
-export type InsertConversion = Omit<Conversion, "id" | "createAt">;
+export type InsertConversion = Omit<Conversion, "id" | "createAt" | "completedAT">;
 
 export type UpdateConversion = Partial<Omit<Conversion, "id" | "createdAt" >>;
 
