@@ -3,12 +3,12 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-"scripts": {
-  "dev": "NODE_ENV=development tsx watch server/index.ts",
-  "build": "tsc && vite build",
-  "start": "NODE_ENV=production node dist/index.js",
-  "check": "tsc --noEmit"
-},
+  "scripts": {
+    "dev": "NODE_ENV=development tsx watch server/index.ts",
+    "build": "tsc && vite build",
+    "start": "NODE_ENV=production node dist/index.js",
+    "check": "tsc --noEmit"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/tahayasinturedi/tuta1_docx_to_pdf_project.git"
@@ -21,14 +21,17 @@
   },
   "homepage": "https://github.com/tahayasinturedi/tuta1_docx_to_pdf_project#readme",
   "devDependencies": {
+    "@replit/vite-plugin-cartographer": "^0.4.4",
+    "@replit/vite-plugin-runtime-error-modal": "^0.0.4",
     "@types/express": "^5.0.5",
     "@types/multer": "^2.0.0",
     "@types/node": "^24.10.1",
-    "@vitejs/plugin-react": "^5.1.1",
+    "@types/react-dom": "^19.2.3",
+    "@vitejs/plugin-react": "^5.1.2",
     "esbuild": "^0.27.0",
     "tsx": "^4.20.6",
     "typescript": "^5.9.3",
-    "vite": "^7.2.4"
+    "vite": "^7.3.1"
   },
   "dependencies": {
     "@aws-sdk/client-lambda": "^3.950.0",
@@ -36,6 +39,9 @@
     "@aws-sdk/s3-request-presigner": "^3.948.0",
     "express": "^5.1.0",
     "multer": "^2.0.2",
+    "react": "^19.2.3",
+    "react-dom": "^19.2.3",
+    "wouter": "^3.9.0",
     "zod": "^4.1.13"
   }
 }
