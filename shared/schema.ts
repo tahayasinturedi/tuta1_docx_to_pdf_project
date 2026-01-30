@@ -3,7 +3,7 @@ import {z} from "zod";
 export interface Conversion {
     id: string;
     filename: string;
-    orginalSize: number;
+    originalSize: number;
     status: "uploading" | "converting" | "completed" | "failed";
     progress: number;
     s3Key: string;

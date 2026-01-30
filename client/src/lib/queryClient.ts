@@ -1,4 +1,4 @@
-import { QueryClient } from "@tanstack/react-query";
+import { QueryClient, QueryFunction } from "@tanstack/react-query";
 
 // API isteği yapan fonksiyon
 export async function apiRequest(
@@ -26,10 +26,26 @@ export async function apiRequest(
   return res;
 }
 
+// Default queryFn - doğru tip ile
+const defaultQueryFn: QueryFunction = async ({ queryKey }) => {
+  const url = queryKey[0] as string;
+  const res = await fetch(url, {
+    credentials: "include",
+  });
+
+  if (!res.ok) {
+    const text = (await res.text()) || res.statusText;
+    throw new Error(`${res.status}: ${text}`);
+  }
+
+  return res.json();
+};
+
 // React Query client
 export const queryClient = new QueryClient({
   defaultOptions: {
     queries: {
+      queryFn: defaultQueryFn,
       refetchOnWindowFocus: false,
       retry: false,
       staleTime: Infinity,
