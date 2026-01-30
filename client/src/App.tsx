@@ -25,8 +25,35 @@ function App() {
   });
 
   const handleFileUpload = (files: FileList) => {
-    console.log("📤 Dosyalar yükleniyor:", files);
-    uploadMutation.mutate(files);
+  console.log("📤 Dosyalar yükleniyor:", files);
+  console.log("📋 Dosya sayısı:", files.length);
+  console.log("📄 İlk dosya:", files[0]);
+  
+  // Dosya kontrolü
+  const validFiles = Array.from(files).filter(file => {
+    console.log("🔍 Kontrol ediliyor:", file.name, file.type, file.size);
+    
+    if (file.size > 10 * 1024 * 1024) {
+      alert(`${file.name} çok büyük (max 10MB)`);
+      return false;
+    }
+    if (!file.name.toLowerCase().endsWith('.docx')) {
+      alert(`${file.name} .docx değil`);
+      return false;
+    }
+    return true;
+  });
+  
+  console.log("✅ Geçerli dosyalar:", validFiles.length);
+  
+  if (validFiles.length > 0) {
+    // FileList'e dönüştür
+    const dataTransfer = new DataTransfer();
+    validFiles.forEach(file => dataTransfer.items.add(file));
+    uploadMutation.mutate(dataTransfer.files);
+  } else {
+    alert("Geçerli dosya bulunamadı!");
+   }
   };
 
   return (
