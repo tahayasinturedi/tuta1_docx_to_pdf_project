@@ -66,6 +66,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
             s3Key: "",
             pdfS3Key: null,
             error: null,
+            createdAt: new Date()
           });
 
           // Upload to S3
@@ -75,8 +76,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
             Key: s3Key,
             Body: file.buffer,
             ContentType: file.mimetype,
-          });
-
+          })
           await s3Client.send(uploadCommand);
 
           // Update conversion with S3 key and set status to converting
