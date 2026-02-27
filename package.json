@@ -26,7 +26,7 @@
     "@replit/vite-plugin-runtime-error-modal": "^0.0.4",
     "@types/express": "^5.0.5",
     "@types/multer": "^2.0.0",
-    "@types/node": "^24.10.9",
+    "@types/node": "^24.10.15",
     "@types/react-dom": "^19.2.3",
     "@vitejs/plugin-react": "^5.1.2",
     "autoprefixer": "^10.4.23",
@@ -48,6 +48,7 @@
     "react": "^19.2.3",
     "react-dom": "^19.2.3",
     "wouter": "^3.9.0",
-    "zod": "^4.1.13"
+    "zod": "^3.24.2",
+    "zod-validation-error": "^3.4.0"
   }
 }
