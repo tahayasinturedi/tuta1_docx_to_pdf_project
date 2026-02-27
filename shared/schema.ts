@@ -14,7 +14,7 @@ export interface Conversion {
     completedAt:Date | null;
 }
 
-export type InsertConversion = Omit<Conversion, "id" | "createAt" | "completedAT">;
+export type InsertConversion = Omit<Conversion, "id" | "createAt" | "completedAt">;
 
 export type UpdateConversion = Partial<Omit<Conversion, "id" | "createdAt" >>;
 
