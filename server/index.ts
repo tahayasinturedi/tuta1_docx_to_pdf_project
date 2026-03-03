@@ -47,16 +47,21 @@ app.use((req, res, next) => {
   });
 
   // FRONTEND SERVE ET (production'da)
-  if (process.env.NODE_ENV === "production") {
-    const __filename = fileURLToPath(import.meta.url);
-    const __dirname = path.dirname(__filename);
-    
-    app.use(express.static(path.join(__dirname, "../public")));
-    
-    app.get("*", (req, res) => {
-      res.sendFile(path.join(__dirname, "../public/index.html"));
-    });
-  }
+if (process.env.NODE_ENV === "production") {
+  const __filename = fileURLToPath(import.meta.url);
+  const __dirname = path.dirname(__filename);
+  
+  // Absolute path kullan
+  const publicPath = path.resolve(__dirname, "public");
+  
+  console.log("📂 Serving static files from:", publicPath);
+  
+  app.use(express.static(publicPath));
+  
+  app.get("*", (req, res) => {
+    res.sendFile(path.join(publicPath, "index.html"));
+  });
+}
 
   const PORT = parseInt(process.env.PORT || "5000", 10);
   
