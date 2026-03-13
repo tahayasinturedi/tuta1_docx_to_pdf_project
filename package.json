@@ -23,7 +23,8 @@
     "tailwind-merge": "^2.6.0",
     "wouter": "^3.3.5",
     "zod": "^3.24.2",
-    "zod-validation-error": "^3.4.0"
+    "zod-validation-error": "^3.4.0",
+    "mammoth": "^1.9.0"
   },
   "devDependencies": {
     "@types/express": "4.17.21",
