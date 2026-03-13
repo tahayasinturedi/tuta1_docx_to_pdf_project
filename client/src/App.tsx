@@ -25,12 +25,12 @@ function App() {
       return response.json();
     },
     onSuccess: (data) => {
-      console.log("✅ Upload başarılı:", data);
+      console.log("✅ Upload is succesful:", data);
       // Listeyi güncelle
       queryClient.invalidateQueries({ queryKey: ["/api/conversions"] });
     },
     onError: (error) => {
-      console.error("❌ Upload hatası:", error);
+      console.error("❌ Upload Error:", error);
       alert("Yükleme başarısız: " + (error as Error).message);
     },
   });
@@ -44,7 +44,7 @@ function App() {
       queryClient.invalidateQueries({ queryKey: ["/api/conversions"] });
     },
     onError: (error) => {
-      alert("Silme başarısız: " + (error as Error).message);
+      alert("CANNOT be DELETED: " + (error as Error).message);
     },
   });
 
@@ -58,22 +58,24 @@ function App() {
       queryClient.invalidateQueries({ queryKey: ["/api/conversions"] });
     },
     onError: (error) => {
-      alert("Tekrar deneme başarısız: " + (error as Error).message);
+      alert("Retry failure: " + (error as Error).message);
     },
   });
 
-  // Download fonksiyonu
+  //Download Funktion
   const handleDownload = async (id: string) => {
-    try {
-      const response = await apiRequest("GET", `/api/download/${id}`);
-      const data = await response.json();
-      
-      // Yeni sekmede aç
-      window.open(data.downloadUrl, "_blank");
-    } catch (error) {
-      alert("İndirme başarısız: " + (error as Error).message);
-    }
-  };
+  try {
+    // Direkt link oluştur ve aç
+    const downloadUrl = `/api/download/${id}`;
+    window.open(downloadUrl, "_blank");
+  } catch (error) {
+    alert({
+      title: "İndirme Başarısız",
+      description: error instanceof Error ? error.message : "İndirme linki oluşturulamadı",
+      variant: "destructive",
+    });
+  }
+};
 
   const handleFileUpload = (files: FileList) => {
     console.log("📤 Dosyalar yükleniyor:", files);
