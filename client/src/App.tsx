@@ -117,7 +117,7 @@ function App() {
                 DOCX to PDF Converter
               </h1>
               <p className="text-gray-600 text-sm">
-                Word dosyalarınızı kolayca PDF'e çevirin
+                Konvertieren Sie Ihre Word-Dateien einfach in PDF
               </p>
             </div>
           </div>
@@ -132,7 +132,7 @@ function App() {
         {/* Processing Queue */}
         <div>
           <h2 className="text-xl font-semibold text-gray-800 mb-4">
-            Dosyalarınız
+            Ihre Dateien
           </h2>
           <ProcessingQueue
             conversions={conversions}

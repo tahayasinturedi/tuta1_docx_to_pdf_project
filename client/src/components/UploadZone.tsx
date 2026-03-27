@@ -67,21 +67,21 @@ export function UploadZone({ onFileUpload, isUploading }: UploadZoneProps) {
 
         <div>
           <h3 className="text-lg font-semibold text-gray-800 mb-2">
-            {isUploading ? "Dosyalar yükleniyor..." : "DOCX dosyalarınızı buraya sürükleyin"}
+            {isUploading ? "Dosyalar yükleniyor..." : "Ziehen Sie Ihre DOCX-Dateien hierher."}
           </h3>
           <p className="text-gray-600 mb-4">
-            {isUploading ? "Lütfen bekleyin..." : "veya dosya seçmek için tıklayın"}
+            {isUploading ? "Warten, bitte..." : "oder klicken Sie, um eine Datei auszuwählen."}
           </p>
           
           {!isUploading && (
             <button className="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-6 rounded-lg transition-colors">
-              Dosya Seç
+              Datei auswählen
             </button>
           )}
         </div>
 
         <div className="text-sm text-gray-500">
-          <p>Desteklenen format: .docx dosyaları (max 10MB)</p>
+          <p>Unterstütztes Format: .docx Datein (max 10MB)</p>
         </div>
       </div>
 
